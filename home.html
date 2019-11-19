@@ -562,10 +562,10 @@ puissiez voir l’évolution du positionnement de votre site sur Google.
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '{your-app-id}',
+      appId      : '{2149037132069767}',
       cookie     : true,
       xfbml      : true,
-      version    : '{api-version}'
+      version    : '{v5.0}'
     });
       
     FB.AppEvents.logPageView();   
@@ -579,7 +579,19 @@ puissiez voir l’évolution du positionnement de votre site sur Google.
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+      
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
 </script>
+      
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
+      
 <div id="footer">
   <div class="container">
     <p>Designed by <a href="https://websitesplanet.netlify.com/" rel="">Websites Planet</a></p>
